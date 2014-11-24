@@ -1,11 +1,14 @@
 package response
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 type Item struct {
 	Body      string `json:"body"`
 	Coediting bool   `json:"coediting"`
-	CreatedAt string `json:"created_at"`
+	CreatedAt time.Time `json:"created_at"`
 	ID        string `json:"id"`
 	Private   bool   `json:"private"`
 	Tags      []struct {
