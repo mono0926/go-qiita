@@ -6,8 +6,13 @@ type Api interface {
 	ItemClient() client.Item
 }
 
-func NewApi(teamKey string, accessToken string) Api {
-	auth := client.NewAuth(teamKey, accessToken)
+func NewApi(accessToken string) Api {
+	auth := client.NewAuth("", accessToken)
+	return &api{auth: auth}
+}
+
+func NewTeamApi(teamKey string, accessToken string) Api {
+	auth := client.NewAuth(teamKey + ".", accessToken)
 	return &api{auth: auth}
 }
 
